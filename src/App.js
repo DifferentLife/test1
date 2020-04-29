@@ -12,8 +12,8 @@ const AppTitle = styled.h1`
   padding: 20px 0;
   font-size: 20px;
   text-transform: uppercase;
-  font-back: 400;
-  color: #2b0e0e;
+  font-weight: 400;
+  color: #ffffff;
   transition: 0.3s 1.4s;
   opacity: ${({ showLabel }) => (showLabel ? 1 : 0)};
 
@@ -62,9 +62,9 @@ const WeatherWrapper = styled.div`
 
 class App extends React.Component {
   state = {
-      value: '',
-        weatherInfo: null,
-       error: false,
+    value: '',
+    weatherInfo: null,
+    error: false,
   };
 
   handleInputChange = e => {
@@ -146,16 +146,16 @@ class App extends React.Component {
     const { value, weatherInfo, error } = this.state;
     return (
       <>
-        <AppTitle showLabel={(weatherInfo || error) && true}>Weather </AppTitle>
+        <AppTitle showLabel={(weatherInfo || error) && true}>Weather app</AppTitle>
         <WeatherWrapper>
           <AppTitle secondary showResult={(weatherInfo || error) && true}>
-            Weather 
+            Weather app
           </AppTitle>
           <SearchCity
-                  value={value}
-                  showResult={(weatherInfo || error) && true}
-                  change={this.handleInputChange}
-                  submit={this.handleSearchCity}
+            value={value}
+            showResult={(weatherInfo || error) && true}
+            change={this.handleInputChange}
+            submit={this.handleSearchCity}
           />
           {weatherInfo && <Result weather={weatherInfo} />}
           {error && <NotFound error={error} />}
